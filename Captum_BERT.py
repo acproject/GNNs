@@ -16,10 +16,13 @@ from captum.attr import IntegratedGradients, LayerConductance, LayerIntegratedGr
 from captum.attr import configure_interpretable_embedding_layer, remove_interpretable_embedding_layer
 
 from transformers import AutoTokenizer, AutoModelForMaskedLM
+tokenizer = torch.hub.load('huggingface/pytorch-transformers', 'tokenizer', 'bert-base-uncased')
+model = torch.hub.load('huggingface/pytorch-transformers', 'model', 'bert-base-uncased')
 
-tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-
-model = AutoModelForMaskedLM.from_pretrained("bert-base-uncased")
+# print(torch.__version__) # hx_pc -> 1.6.0 + cu101
+# tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+#
+# model = AutoModelForMaskedLM.from_pretrained("bert-base-uncased")
 
 # device: torch.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 #
